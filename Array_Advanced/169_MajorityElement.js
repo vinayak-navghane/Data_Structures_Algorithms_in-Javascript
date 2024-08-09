@@ -41,13 +41,13 @@ var majorityElement = function (nums) {
 // using Boyer-Moore Voting Algorithm 
 
 var majorityElement = function (nums) {
-    let temp;
+    let candidate;
     let count = 0;
     for (const num of nums) {
-        count === 0 ? temp = num : 0;
-        count += (num === temp) ? 1 : -1
+        count === 0 ? candidate = num : 0;
+        count += (num === candidate) ? 1 : -1
     }
-    return temp;
+    return candidate;
 };
 
 // TC - O(n)
