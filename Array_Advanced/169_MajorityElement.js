@@ -30,7 +30,6 @@ var majorityElement = function (nums) {
             }
         }
         if (count > Math.floor(n / 2)) {
-            console.log(Math.floor(n / 2))
             return nums[i];
         }
 
