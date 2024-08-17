@@ -48,3 +48,39 @@ var findPeakElement = function (nums) {
 };
 
 //TC - O(log n)
+
+
+/*
+Initially -
+[1,2,1,3,5,6,4] 
+ l           r 
+
+iteration 1 -
+[1,2,1,3,5,6,4] 
+ l     m     r 
+now, 3 is not greater than 5 hence execute else part
+
+[1,2,1,3,5,6,4] 
+       m l   r 
+
+iteration 2 -
+[1,2,1,3,5,6,4] 
+         l m r 
+now , 6 is greater than 4 hence execute if part
+
+[1,2,1,3,5,6,4] 
+         l m 
+           r 
+
+iteration 3 -
+[1,2,1,3,5,6,4] 
+         l  
+         m r 
+now, 5 is not greater than 6 hence execute else part
+
+ [1,2,1,3,5,6,4]  
+            l    
+          m r  
+
+  return l;        
+*/
