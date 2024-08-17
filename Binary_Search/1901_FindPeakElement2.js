@@ -26,10 +26,10 @@ No two adjacent cells are equal.
  * @param {number[][]} mat
  * @return {number[]}
  */
-function findMaxRowIndex(mat, mid) {
+function findMaxRowIndex(mat, col) {
     let maxRowIndex = 0;
     for (let i = 1; i < mat.length; i++) {
-        if (mat[i][mid] > mat[maxRowIndex][mid]) {
+        if (mat[i][col] > mat[maxRowIndex][col]) {
             maxRowIndex = i;
         }
     }
