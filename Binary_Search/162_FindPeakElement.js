@@ -46,3 +46,5 @@ var findPeakElement = function (nums) {
     }
     return left;
 };
+
+//TC - O(log n)
