@@ -55,5 +55,4 @@ var searchMatrix = function (matrix, target) {
     }
     return false;
 };
-// TC - O(log n) where n = rows * cols, ]
-// So finally TC will be O(log(rows * cols))
+// TC - O(m log n)  where m is the number of rows and n is the number of columns.
