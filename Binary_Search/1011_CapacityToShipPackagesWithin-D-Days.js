@@ -19,11 +19,13 @@ Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 
 
 Note that the cargo must be shipped in the order given, so using a ship of capacity 14 and splitting the packages into parts like (2, 3, 4, 5), (1, 6, 7), (8), (9), (10) is not allowed.
 */
+// Brute force - 
 /**
  * @param {number[]} weights
  * @param {number} days
  * @return {number}
- */function numberOfDays(weights, capacity) {
+ */
+function numberOfDays(weights, capacity) {
     let days = 1;
     let load = 0;
 
@@ -57,4 +59,42 @@ var shipWithinDays = function (weights, days) {
 
 //TC - O((sum - max) + 1) * O(n)
 
+// Using Binary Search - 
+function numberOfDays(weights, capacity) {
+    let days = 1;
+    let load = 0;
 
+    for (let i = 0; i < weights.length; i++) {
+        if (weights[i] > capacity) {
+            // If a single package exceeds capacity, it's impossible to ship
+            return Infinity;
+        }
+        if (load + weights[i] > capacity) {
+            days++;
+            load = weights[i];
+        } else {
+            load += weights[i];
+        }
+    }
+    return days;
+}
+
+var shipWithinDays = function (weights, days) {
+    let maxWeight = Math.max(...weights);
+    let sumOfWeights = weights.reduce((a, b) => a + b, 0);
+
+    let low = maxWeight;
+    let high = sumOfWeights;
+
+    while (low <= high) {
+        let mid = low + Math.floor((high - low) / 2);
+        let numOfDays = numberOfDays(weights, mid);
+
+        if (numOfDays <= days) {
+            high = mid - 1;
+        }
+        else low = mid + 1;
+    }
+    return low;
+};
+// TC - O(log(sum - max + 1)) * O(n)
