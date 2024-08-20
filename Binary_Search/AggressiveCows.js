@@ -48,7 +48,7 @@ function aggressiveCows(stalls, k) {
 
     let minDist = 1;
     let maxDist = stalls[stalls.length - 1] - stalls[0];
-    //let result = minDist;
+    let result = minDist;
 
     for (let i = minDist; i <= maxDist; i++) {
         if (canWePlace(stalls, i, k)) {
@@ -59,4 +59,49 @@ function aggressiveCows(stalls, k) {
     return result;
 }
 
-// O(max-min) * O(n) * O(n log n) i.e in worst case O(n^2) * O(n) = O(n^3)
+// O(n log n) + O(max-min) * O(n)  i.e in worst case O(n^2) * O(n) = O(n^3)
+
+// Using Binary Search - 
+
+function canWePlace(stalls, dist, cows) {
+    let cowsCount = 1;
+    let last = stalls[0];
+
+    for (let i = 1; i < stalls.length; i++) {
+        if (stalls[i] - last >= dist) {
+            cowsCount++;
+            last = stalls[i];
+        }
+    }
+
+    if (cowsCount >= cows) return true;
+    else return false;
+}
+function aggressiveCows(stalls, k) {
+    stalls.sort((a, b) => a - b);  // Ensure stalls are sorted
+
+    let low = 0;
+    let high = stalls[stalls.length - 1] - stalls[0];
+    let ans = -1;
+
+    while (low <= high) {
+        let mid = low + Math.floor((high - low) / 2);
+
+        if (canWePlace(stalls, mid, k) == true) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return high;
+
+}
+
+// O(n log n) + O(log(max-min)) * O(n)
+
+
+/*
+ [0, 3, 4, 7, 9, 10] 
+  l     m         h 
+ */
