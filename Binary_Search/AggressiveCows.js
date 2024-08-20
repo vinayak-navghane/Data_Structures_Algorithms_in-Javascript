@@ -80,9 +80,8 @@ function canWePlace(stalls, dist, cows) {
 function aggressiveCows(stalls, k) {
     stalls.sort((a, b) => a - b);  // Ensure stalls are sorted
 
-    let low = 0;
+    let low = 1;
     let high = stalls[stalls.length - 1] - stalls[0];
-    let ans = -1;
 
     while (low <= high) {
         let mid = low + Math.floor((high - low) / 2);
