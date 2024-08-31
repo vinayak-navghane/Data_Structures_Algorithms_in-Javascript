@@ -80,12 +80,38 @@ LinkedList.prototype.deleteLastNode = function () {
     }
 
     let secondLastNode = this.head;
-
     while (secondLastNode.next.next) {
         this.secondLastNode = this.secondLastNode.next;
     }
 
     secondLastNode.next = null;
+}
 
+// delete the given node
 
+LinkedList.prototype.deleteByKey = function (key) {
+    //if list is empty
+    if (!this.head) {
+        console.log("List is Empty")
+        return
+    }
+
+    // data found at head
+    if (!this.head.data === key) {
+        this.head = this.head.next
+        return
+    }
+
+    //traversing
+    let current = this.head;
+
+    while (current.next !== null) {
+        if (current.next.data === key) {
+            current.next = current.next.next
+            return
+        }
+        current = current.next
+    }
+
+    console.log("No node found with key:", key)
 }
