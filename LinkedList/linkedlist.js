@@ -128,3 +128,18 @@ LinkedList.prototype.search = function (key) {
     }
     return false
 }
+
+
+// Traversal
+
+LinkedList.prototype.traverse = function () {
+    let current = this.head
+    let result = []
+
+    while (current) {
+        result.push(current.data)
+        current = current.next;
+    }
+
+    console.log(result.join(" -> "))
+}
