@@ -115,3 +115,16 @@ LinkedList.prototype.deleteByKey = function (key) {
 
     console.log("No node found with key:", key)
 }
+
+// Search Operation
+
+LinkedList.prototype.search = function (key) {
+    let current = this.head
+
+    while (current) {
+        if (current.data === key) {
+            return true;
+        }
+    }
+    return false
+}
