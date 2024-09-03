@@ -26,7 +26,7 @@ var getIntersectionNode = function (headA, headB) {
 // TC - O(n + m)
 // SC - O(n)
 
-//Optimized - 
+//SC Optimized - 
 
 
 var getIntersectionNode = function (headA, headB) {
@@ -45,5 +45,5 @@ var getIntersectionNode = function (headA, headB) {
     return t1
 }
 
-//TC - O(n1 + n2)
+//TC - O(n + m)
 //SC - O(1)
