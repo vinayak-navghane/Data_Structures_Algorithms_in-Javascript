@@ -63,3 +63,38 @@ var generateParenthesis = function (n) {        // O(2^2n)
 //TC - O(2^2n * n)
 // SC - Actual space complexity is more complex but we can say is it same as 
 // O(2^2n * n)
+
+//Optimized - using Backtracking 
+
+
+var generateParenthesis = function (n) {
+    //global result
+    let result = []
+    //dfs helper function
+    var dfs = (i, n, slate, oCount, cCount) => {
+        // backtracking case
+        if (oCount > n) return
+        if (cCount > oCount) return
+
+        //base case
+        if (i === n * 2) {
+            result.push(slate.join(''))
+        }
+
+        //dfs recursive call 
+        //open paren
+        slate.push('(')
+        dfs(i + 1, n, slate, oCount + 1, cCount)
+        slate.pop()
+
+        //closed paren
+        slate.push(')')
+        dfs(i + 1, n, slate, oCount, cCount + 1)
+        slate.pop()
+    }
+    dfs(0, n, [], 0, 0)
+    return result
+};
+
+//TC - O(4^n / sqrt(n)) or  O(4^n / n^3/2) 
+//SC - O(4^n / sqrt(n)) or  O(4^n / n^1/2)
