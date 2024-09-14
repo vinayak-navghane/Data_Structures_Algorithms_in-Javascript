@@ -30,16 +30,15 @@ class Solution {
         if (!grid[row][col]) return
 
         if (row == n - 1 && col == n - 1) {
-            result.push(path.slice().join("")); // Push a copy of the path array
-            // console.log(path)
+            result.push(path.slice().join(""));
             return;
         }
 
         visited[row][col] = true;
 
-        let rowMove = [-1, 1, 0, 0];
-        let colMove = [0, 0, -1, 1];
-        let dir = ["U", "D", "L", "R"];
+        let rowMove = [-1, 1, 0, 0]; //up,down,left right
+        let colMove = [0, 0, -1, 1]; //up,down,left right
+        let dir = ["U", "D", "L", "R"];  //up,down,left right   
 
         for (let i = 0; i < rowMove.length; i++) {
             let nextRow = row + rowMove[i];
