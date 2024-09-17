@@ -12,7 +12,7 @@ Each solution contains a distinct board configuration of the n-queens' placement
  * @return {string[][]}
  */
 
-const formatBoard = (board) => {
+const formatBoard = (board) => { // O(n^2)
     let result = []
 
     for (let col = 0; col < board.length; col++) {
@@ -28,12 +28,12 @@ var solveNQueens = function (n) {
     let result = []
 
     //backtracking case
-    const dfs = (i, n, slate,) => {
+    const dfs = (i, n, slate,) => {  //O(n!) or O(n*n)
         let lastQ = i - 1;
 
         for (let prevQ = 0; prevQ < lastQ; prevQ++) {
             //col conflict 
-            if (slate[prevQ] == slate[lastQ]) return
+            if (slate[prevQ] == slate[lastQ]) return  //O(n)
 
             //diagonal conflict
             let rowDiff = Math.abs(prevQ - lastQ)
@@ -58,7 +58,7 @@ var solveNQueens = function (n) {
     return result.map(board => formatBoard(board))
 
 };
-
+// TC - O(n!) * O(n^2) = O(n! * n^2)
 
 
 
