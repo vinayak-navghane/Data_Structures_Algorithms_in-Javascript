@@ -28,7 +28,7 @@ class Solution {
 
         // Reverse the prefix expression
         let n = pre_exp.length;
-        for (let i = n - 1; i >= 0; i--) {
+        for (let i = n - 1; i >= 0; i--) {  //O(n)
             let c = pre_exp[i];
 
             // If the character is an operator
@@ -50,3 +50,5 @@ class Solution {
         return stack.pop();
     }
 }
+//TC - O(n)
+//SC - O(n)
