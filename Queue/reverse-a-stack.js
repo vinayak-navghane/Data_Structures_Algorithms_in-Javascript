@@ -6,7 +6,7 @@ output - 6,7,1,2,3
 
 class Solution {
     // Function to reverse a stack using recursion
-    reverse(St) {
+    reverse(St) {   // O(n)
         // Base case: if the stack is empty
         if (St.length === 0) {
             return;
@@ -23,7 +23,7 @@ class Solution {
     }
 
     // Helper function to enqueue elements back to the stack
-    enqueue(St, element) {
+    enqueue(St, element) { //O(n^2)
         // Base case: if the stack is empty
         if (St.length === 0) {
             St.push(element);
@@ -41,3 +41,5 @@ class Solution {
     }
 }
 
+//TC - O(n^2)
+//SC - O(n)
