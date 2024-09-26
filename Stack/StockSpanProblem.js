@@ -36,3 +36,30 @@ class Solution {
     }
 }
 //Tc - O(n^2)
+
+
+//Optimized - Intution is to store previous greatest elements index in 
+//stack
+
+class Solution {
+    //Function to calculate the span of stockâ€™s price for all n days.
+    calculateSpan(price, n) {
+        let st = [];
+        let res = new Array(n).fill(0);
+
+        res[0] = 1;
+        st.push(0);
+
+        for (let i = 1; i < n; i++) {
+            while (st.length && price[st[st.length - 1]] <= price[i]) {
+                st.pop()
+            }
+            res[i] = !st.length ? (i + 1) : (i - st[st.length - 1])
+            st.push(i)
+        }
+        return res
+    }
+}
+
+//TC - O(n) - for loop (O(n)) + while loop (O(n))
+//SC- O(n)
