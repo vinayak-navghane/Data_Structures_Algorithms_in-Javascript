@@ -30,27 +30,34 @@ Output: [1]
  * @return {ListNode}
  */
 var removeNthFromEnd = function (head, n) {
-    let current = head
-    let length = 0
+    let current = head;
+    let length = 0;
 
-    while (current) {   //O(n)
-        length++
-        current = current.next
+    // First pass: calculate the length of the linked list
+    while (current) { // O(n)
+        length++;
+        current = current.next;
     }
 
-    if (length == 1 && n == 1) return null
+    // Special case: if we need to remove the only node in the list
+    if (length == 1 && n == 1) return null;
 
-    nodesToTraverse = length - n
-    current = head
+    // Calculate how many nodes to traverse from the beginning
+    let nodesToTraverse = length - n;
+    current = head;
 
-    if (nodesToTraverse >= 1) {
-        while (nodesToTraverse > 1) { //O(n)
-            current = current.next
-            nodesToTraverse--
-        }
-    } else {
-        head = current.next
+    // If the node to remove is the head node
+    if (nodesToTraverse === 0) {
+        return head.next;
     }
+
+    // Traverse to the node before the one to remove
+    while (nodesToTraverse > 1) { // O(n)
+        current = current.next;
+        nodesToTraverse--;
+    }
+
+    // Remove the nth node from the end
     current.next = current.next.next;
 
     return head;
