@@ -119,3 +119,22 @@ class Solution {
 
 */
 //TC - O((n+m) * log(n+m))
+
+/*
+Let's compare the two time complexities:
+
+O(nlogn+mlogm):
+
+This complexity arises from sorting two separate arrays of sizes 
+
+m are significantly different, sorting them separately might take advantage of the smaller size of one of the lists.
+However, the sum of two logarithmic terms is generally less efficient compared to the logarithm of their sum for large values.
+
+O((n+m)log(n+m)):
+
+This complexity arises from merging the two lists first and then sorting the combined list.
+Sorting a single combined list of size 
+
+(n+m) is typically more efficient than sorting two separate lists and then merging them.
+The logarithm of the sum of two numbers is less than the sum of the logarithms of those numbers.
+*/
