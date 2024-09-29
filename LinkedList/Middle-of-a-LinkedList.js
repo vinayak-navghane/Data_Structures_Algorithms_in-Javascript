@@ -16,6 +16,37 @@ This is method only submission.
 You only need to complete the below method.
 */
 
+//brute force 
+
+class Solution {
+    /* Should return data of middle node. If linked list is empty, then  -1*/
+    getMiddle(node) {
+
+        if (node == null) return -1
+
+        let listLength = 0
+        let current = node
+
+        while (current) {
+            listLength++
+            current = current.next
+        }
+
+        let midElementIndex = Math.floor(listLength / 2)
+
+        let midElement = node
+
+        while (midElementIndex > 0) {
+            midElement = midElement.next;
+            midElementIndex--
+        }
+
+        return midElement.data
+    }
+}
+//TC - O(n)
+
+// using fast & slow pointer
 class Solution {
     /* Should return data of middle node.
     If linked list is empty, then  -1*/
