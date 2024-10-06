@@ -16,6 +16,36 @@ Output: -1
 Explanation: The two people at the party both know each other. None of them is a celebrity.
 */
 
+//brute force - 
+
+class Solution {
+    // Function to find the celebrity.
+    celebrity(mat) {
+        let n = mat[0].length
+        let knowMe = new Array(n).fill(0)
+        let knows = new Array(n).fill(0)
+
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                if (mat[i][j] == 1) {
+                    knows[i]++;
+                    knowMe[j]++;
+                }
+            }
+        }
+
+        for (let i = 0; i < n; i++) {
+            if (knowMe[i] == n - 1 && knows[i] == 0) {
+                return i
+            }
+        }
+        return -1
+    }
+}
+
+//TC - O(n^2)
+//SC - O(n)
+
 
 class Solution {
     // Function to find the celebrity.
@@ -59,4 +89,5 @@ class Solution {
     }
 }
 
-
+//TC - O(n)
+//SC - O(n)
