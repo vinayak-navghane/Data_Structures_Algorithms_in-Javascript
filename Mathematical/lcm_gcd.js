@@ -55,4 +55,16 @@ class Solution {
 //TC- O(log(min(a,b))
 
 
+class Solution {
+    lcmAndGcd(a, b) {
+        let calculateGcd = (a, b) => {
+            if (b == 0) return a
+            return calculateGcd(b, a % b)
+        }
 
+        let gcd = calculateGcd(a, b)
+        let lcm = (a * b) / gcd
+        return [lcm, gcd]
+    }
+}
+//TC- O(log(min(a,b))
