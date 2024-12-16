@@ -29,3 +29,23 @@ class Solution {
     }
 }
 // TC - O(1)
+
+
+class Solution {
+    armstrongNumber(n) {
+        let originalN = n
+        let total = 0
+
+        while (n > 0) {
+            let lastDigit = n % 10
+            n = Math.floor(n / 10)
+            total += lastDigit * lastDigit * lastDigit
+        }
+
+        if (total === originalN) return true
+
+        return false
+    }
+}
+
+// TC - O(1)
