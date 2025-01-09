@@ -22,7 +22,9 @@ class Solution {
         return sum;
     }
 }
-// TC- O(n raise to 3/2)
+// TC-  O(n * sqrt(n)) 
+// Or
+// O(n raise to 3/2)
 
 // Optimized- using Sieve of Eratosthenes algorithm 
 
