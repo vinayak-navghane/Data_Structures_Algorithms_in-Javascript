@@ -13,3 +13,15 @@ var smallestEvenMultiple = function (n) {
 // TC- O(1)
 
 
+// one more solution 
+var smallestEvenMultiple = function (n) {
+    if (n % 2 == 0) return n
+
+    let assumedSEM = n * 2
+
+    if (assumedSEM % 2 == 0 && assumedSEM % n == 0) {
+        return assumedSEM
+    }
+
+};
+// TC- O(1)
