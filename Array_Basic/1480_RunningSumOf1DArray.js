@@ -24,3 +24,25 @@ var runningSum = function (nums) {
     return res;
 };
 // TC- O(n)
+
+// one more solution - 
+
+
+var runningSum = function (nums) {
+    let sum = 0
+    let res = []
+    let n = nums.length
+    let i = 0
+
+    while (n) {
+        sum += nums[i]
+        res.push(sum)
+
+        i++
+        n--
+    }
+
+    return res
+};
+
+//TC - O(n)
