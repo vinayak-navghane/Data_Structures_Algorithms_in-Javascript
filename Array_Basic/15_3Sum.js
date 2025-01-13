@@ -7,6 +7,34 @@ Input: nums = [-1,0,1,2,-1,-4]
 Output: [[-1,-1,2],[-1,0,1]]
 */
 
+//brute force - 
+
+var threeSum = function (nums) {
+    let n = nums.length
+    let res = new Set()
+
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            for (let k = j + 1; k < n; k++) {
+                if (nums[i] + nums[j] + nums[k] === 0) {
+                    let temp = [nums[i], nums[j], nums[k]]
+                    temp.sort((a, b) => a - b)
+                    res.add(temp.toString());
+                }
+            }
+        }
+    }
+    return Array.from(res).map(item => item.split(',').map(Number));
+
+
+};
+//Tc - O(n^3)
+
+
+
+
+
+
 var threeSum = function (nums) {
     nums.sort((a, b) => a - b)
     let res = [];
