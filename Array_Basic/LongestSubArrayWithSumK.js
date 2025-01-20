@@ -56,7 +56,7 @@ class Solution {
 }
 //TC- O(n^2) SC- O(1)
 
-//Better - it will work even if input array has zero or negative values
+//Better/Optimized - it will work even if input array has zero or negative values
 
 class Solution {
     longestSubarray(arr, k) {
@@ -84,3 +84,28 @@ class Solution {
 // TC - O(n)
 // SC - O(n)
 
+//Optimized - (Only if input values are only positive(no negative numbers))
+
+
+class Solution {
+    longestSubarray(arr, k) {
+        let left = 0
+        let right = 0
+        let sum = arr[0]
+        let maxLen = 0
+        let n = arr.length
+
+        while (right < n) {
+            while (left <= right && sum > k) {
+                sum -= arr[left]
+                left++
+            }
+            if (sum == k) {
+                maxLen = Math.max(maxLen, right - left + 1)
+            }
+            right++
+            if (right < n) sum += arr[right]
+        }
+        return maxLen
+    }
+}
