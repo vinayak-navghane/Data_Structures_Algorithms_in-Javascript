@@ -40,13 +40,22 @@ var majorityElement = function (nums) {
 
 // using Boyer-Moore Voting Algorithm 
 
+
 var majorityElement = function (nums) {
     let candidate;
     let count = 0;
-    for (const num of nums) {
-        count === 0 ? candidate = num : 0;
-        count += (num === candidate) ? 1 : -1
+
+    for (let i = 0; i < nums.length; i++) {
+        if (count === 0) {
+            candidate = nums[i];
+        }
+        if (nums[i] === candidate) {
+            count++;
+        } else {
+            count--;
+        }
     }
+
     return candidate;
 };
 
