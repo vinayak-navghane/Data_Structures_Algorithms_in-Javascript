@@ -15,7 +15,31 @@ Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-
 Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 */
 
-// Approach 1 - Sliding Window 
+// Brute force -
+
+var maxProfit = function (prices) {
+    let maxProfit = 0
+    let n = prices.length
+
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            if (prices[i] >= prices[j]) {
+                continue
+            }
+            else {
+                let profit = prices[j] - prices[i]
+                maxProfit = Math.max(maxProfit, profit)
+            }
+        }
+    }
+    return maxProfit
+};
+
+// TC - O(n^2)
+
+
+
+// Optimized Approach 1 - Sliding Window 
 
 var maxProfit = function (prices) {
     let left = 0;
@@ -31,7 +55,7 @@ var maxProfit = function (prices) {
 //  TC - O(n)
 
 
-// Approach 2 - Single Pass - Tracking Min Price
+// Optimized Approach 2 - Single Pass - Tracking Min Price
 
 var maxProfit = function (prices) {
     if (prices.length < 2) return 0; // No transaction possible
